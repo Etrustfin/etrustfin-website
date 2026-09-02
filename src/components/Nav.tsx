@@ -66,11 +66,11 @@ export default function Nav() {
               <Link href="/concepts" onClick={close}>Concepts Library</Link>
               <Link href="/how-we-work#quiz" onClick={close}>Financial Quiz</Link>
               <Link href="/reviews" onClick={close}>Client Reviews</Link>
+              <a href={TERM_QUOTE_URL} target="_blank" rel="noopener" onClick={close}>
+                Get a Term Insurance Quote
+              </a>
             </div>
           </div>
-          <a href={TERM_QUOTE_URL} target="_blank" rel="noopener" onClick={close}>
-            Get a Term Insurance Quote
-          </a>
           <Link href="/contact" className={isActive("/contact") ? "active" : undefined} onClick={close}>
             Contact
           </Link>

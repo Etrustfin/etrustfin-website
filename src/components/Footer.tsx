@@ -36,12 +36,12 @@ export default function Footer() {
             <Link href="/concepts">Concepts Library</Link>
             <Link href="/how-we-work#quiz">Financial Quiz</Link>
             <Link href="/reviews">Client Reviews</Link>
+            <a href={TERM_QUOTE_URL} target="_blank" rel="noopener">Get a Term Insurance Quote</a>
             <Link href="/contact">Contact</Link>
           </div>
           <div>
             <h4>Connect</h4>
             <a href={SCHEDULE_URL} target="_blank" rel="noopener">Schedule a Call</a>
-            <a href={TERM_QUOTE_URL} target="_blank" rel="noopener">Get a Term Insurance Quote</a>
             <a href={LINKEDIN_URL} target="_blank" rel="noopener">LinkedIn</a>
             <a href={GOOGLE_REVIEW_URL} target="_blank" rel="noopener">Review Us on Google</a>
           </div>
