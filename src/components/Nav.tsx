@@ -14,7 +14,7 @@ export default function Nav() {
 
   return (
     <nav>
-      <div className="wrap nav-inner">
+      <div className="nav-wrap nav-inner">
         <Link className="brand" href="/" onClick={close}>
           <img src="/assets/logo.png" alt="Essential Trust Financial seal logo" />
           <span>
@@ -59,11 +59,15 @@ export default function Nav() {
           >
             How We Work
           </Link>
+          <Link href="/blog" className={isActive("/blog") ? "active" : undefined} onClick={close}>
+            Blog
+          </Link>
+          <Link href="/events" className={isActive("/events") ? "active" : undefined} onClick={close}>
+            Events
+          </Link>
           <div className="dropdown">
             <span>Resources</span>
             <div className="dropdown-menu">
-              <Link href="/blog" onClick={close}>Blog</Link>
-              <Link href="/events" onClick={close}>Events</Link>
               <Link href="/concepts" onClick={close}>Concepts Library</Link>
               <Link href="/how-we-work#quiz" onClick={close}>Financial Quiz</Link>
               <Link href="/reviews" onClick={close}>Client Reviews</Link>
