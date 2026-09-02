@@ -1,36 +1,54 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useId } from "react";
 
-const EMBED_SCRIPT_SRC = "https://js.hsforms.net/forms/embed/23953347.js";
+const EMBED_SCRIPT_SRC = "https://js.hsforms.net/forms/v2.js";
 
 declare global {
   interface Window {
-    __hsFormsEmbedLoaded?: boolean;
+    hbspt?: {
+      forms: {
+        create: (options: {
+          region: string;
+          portalId: string;
+          formId: string;
+          target: string;
+        }) => void;
+      };
+    };
   }
 }
 
 export default function HubSpotForm({ formId, region = "na2" }: { formId: string; region?: string }) {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const rawId = useId();
+  const targetId = `hs-form-${rawId.replace(/[:]/g, "")}`;
 
   useEffect(() => {
-    function loadScript() {
-      if (document.querySelector(`script[src="${EMBED_SCRIPT_SRC}"]`)) return;
-      const script = document.createElement("script");
-      script.src = EMBED_SCRIPT_SRC;
-      script.defer = true;
-      document.body.appendChild(script);
+    function createForm() {
+      window.hbspt?.forms.create({
+        region,
+        portalId: "23953347",
+        formId,
+        target: `#${targetId}`,
+      });
     }
-    loadScript();
-  }, []);
 
-  return (
-    <div
-      ref={containerRef}
-      className="hs-form-frame"
-      data-region={region}
-      data-form-id={formId}
-      data-portal-id="23953347"
-    />
-  );
+    if (window.hbspt) {
+      createForm();
+      return;
+    }
+
+    const existing = document.querySelector<HTMLScriptElement>(`script[src="${EMBED_SCRIPT_SRC}"]`);
+    if (existing) {
+      existing.addEventListener("load", createForm, { once: true });
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = EMBED_SCRIPT_SRC;
+    script.addEventListener("load", createForm, { once: true });
+    document.body.appendChild(script);
+  }, [formId, region, targetId]);
+
+  return <div id={targetId} className="hubspot-form-embed" />;
 }
