@@ -64,7 +64,7 @@ const REVIEWS = [
   },
   {
     who: "Bob Moj",
-    text: "As a Small Business owner. Was looking for a financial advisor to plan a safe, secure and sustainable retirement plan to support my family and referred to Samantha owner of Essential Trust Financial by a friend who got his retirement plan with her. After 3 sessions of online virtual meeting going through my business and family financial requirements, she put all information together and provided 2 different strategies based on the level of risk we wanted to take. Then we together, narrowed down the plans and finally came to very specific retirement plan which was tailored for us. I should say, it was great experience for me working with Samantha and her team as we got all information we needed and she patiently answered all our questions and concerns. I'm very glad that met Samantha and happy with the outcome. I would highly recommend Essential Trust Financial Insurance Solution and Samantha for your financial planning. — B. Mojarad, QualTM General Construction",
+    text: "As a Small Business owner. Was looking for a financial advisor to plan a safe, secure and sustainable retirement plan to support my family and referred to Samantha owner of Essential Trust Financial by a friend who got his retirement plan with her. After 3 sessions of online virtual meeting going through my business and family financial requirements, she put all information together and provided 2 different strategies based on the level of risk we wanted to take. Then we together, narrowed down the plans and finally came to very specific retirement plan which was tailored for us. I should say, it was great experience for me working with Samantha and her team as we got all information we needed and she patiently answered all our questions and concerns. I'm very glad that met Samantha and happy with the outcome. I would highly recommend Essential Trust Financial Insurance Solution and Samantha for your financial planning. B. Mojarad, QualTM General Construction",
   },
   {
     who: "Monica Melendez",
@@ -122,7 +122,7 @@ export default function ReviewsPage() {
       <PageHero
         eyebrow="Client Experiences"
         title="What clients say."
-        description={`Real words from the people we serve — all ${REVIEWS.length} five-star reviews from Google. If we have worked together, we would be grateful for yours.`}
+        description={`Real words from the people we serve. All ${REVIEWS.length} five-star reviews from Google. If we have worked together, we would be grateful for yours.`}
         crumbLabel="Client Reviews"
       />
       <section className="section">
