@@ -63,6 +63,7 @@ export default function Nav() {
             <span>Resources</span>
             <div className="dropdown-menu">
               <Link href="/blog" onClick={close}>Blog</Link>
+              <Link href="/events" onClick={close}>Events</Link>
               <Link href="/concepts" onClick={close}>Concepts Library</Link>
               <Link href="/how-we-work#quiz" onClick={close}>Financial Quiz</Link>
               <Link href="/reviews" onClick={close}>Client Reviews</Link>

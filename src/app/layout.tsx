@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Marcellus, Mulish } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import NewsletterPopup from "@/components/NewsletterPopup";
 import { SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Nav />
         {children}
         <Footer />
+        <NewsletterPopup />
       </body>
     </html>
   );

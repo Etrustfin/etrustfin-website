@@ -363,3 +363,31 @@ footer{background:#0e0e0e;color:#9a9a94;padding:70px 0 40px;font-size:14px}
 @media (max-width:560px){
   .trust-grid,.foot-grid{grid-template-columns:1fr}
 }
+
+/* NEWSLETTER POPUP */
+.newsletter-overlay{position:fixed;inset:0;background:rgba(20,20,20,.55);display:flex;align-items:center;justify-content:center;z-index:1000;padding:24px}
+.newsletter-modal{position:relative;background:var(--paper);border-radius:14px;max-width:440px;width:100%;padding:44px 40px;box-shadow:0 30px 80px rgba(0,0,0,.28)}
+.newsletter-close{position:absolute;top:14px;right:14px;background:none;border:none;font-size:26px;line-height:1;color:var(--stone);cursor:pointer;padding:6px 10px}
+.newsletter-close:hover{color:var(--ink)}
+.newsletter-modal h3{font-size:26px;margin-bottom:14px}
+.newsletter-modal > p:not(.eyebrow){color:var(--graphite);font-size:15px;margin-bottom:24px}
+.newsletter-form{display:flex;flex-direction:column;gap:12px}
+.newsletter-form input{font-family:var(--body);font-size:15.5px;padding:14px 16px;border:1px solid var(--line);border-radius:8px;background:var(--white);color:var(--ink);width:100%}
+.newsletter-form input:focus{outline:none;border-color:var(--ink)}
+.newsletter-form .btn{width:100%;text-align:center;border:none}
+.newsletter-error{color:#b3261e;font-size:13px;margin-top:12px}
+.newsletter-success p{color:var(--graphite);font-size:15px}
+@media (max-width:560px){
+  .newsletter-modal{padding:36px 26px}
+}
+
+/* BLOG POST CONTENT (rendered HubSpot HTML) */
+.post-content{font-size:16.5px;color:var(--graphite);line-height:1.8}
+.post-content h2{font-family:var(--display);font-size:28px;color:var(--ink);margin:40px 0 18px;font-weight:400}
+.post-content h3{font-family:var(--display);font-size:22px;color:var(--ink);margin:32px 0 14px;font-weight:400}
+.post-content p{margin-bottom:20px}
+.post-content a{color:var(--ink);text-decoration:underline}
+.post-content ul,.post-content ol{margin:0 0 20px 22px}
+.post-content li{margin-bottom:8px}
+.post-content img{border-radius:10px;border:1px solid var(--line);margin:24px 0;max-width:100%}
+.post-content blockquote{border-left:3px solid var(--ink);padding-left:20px;margin:28px 0;font-family:var(--display);font-size:19px;color:var(--ink)}
