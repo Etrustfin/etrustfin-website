@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { SCHEDULE_URL } from "@/lib/constants";
+import { SCHEDULE_URL, TERM_QUOTE_URL } from "@/lib/constants";
 
 export default function Nav() {
   const pathname = usePathname();
@@ -68,6 +68,9 @@ export default function Nav() {
               <Link href="/reviews" onClick={close}>Client Reviews</Link>
             </div>
           </div>
+          <a href={TERM_QUOTE_URL} target="_blank" rel="noopener" onClick={close}>
+            Get a Term Insurance Quote
+          </a>
           <Link href="/contact" className={isActive("/contact") ? "active" : undefined} onClick={close}>
             Contact
           </Link>

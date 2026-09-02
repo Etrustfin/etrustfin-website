@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { GOOGLE_REVIEW_URL, LINKEDIN_URL, SCHEDULE_URL } from "@/lib/constants";
+import { GOOGLE_REVIEW_URL, LINKEDIN_URL, SCHEDULE_URL, TERM_QUOTE_URL } from "@/lib/constants";
 
 export default function Footer() {
   return (
@@ -41,6 +41,7 @@ export default function Footer() {
           <div>
             <h4>Connect</h4>
             <a href={SCHEDULE_URL} target="_blank" rel="noopener">Schedule a Call</a>
+            <a href={TERM_QUOTE_URL} target="_blank" rel="noopener">Get a Term Insurance Quote</a>
             <a href={LINKEDIN_URL} target="_blank" rel="noopener">LinkedIn</a>
             <a href={GOOGLE_REVIEW_URL} target="_blank" rel="noopener">Review Us on Google</a>
           </div>
