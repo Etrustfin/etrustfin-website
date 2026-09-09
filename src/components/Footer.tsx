@@ -78,7 +78,10 @@ export default function Footer() {
             experiences and may not be representative of all clients; no compensation was provided
             for reviews.
           </p>
-          <p>&copy; 2026 Essential Trust Financial. All rights reserved.</p>
+          <p>
+            &copy; 2026 Essential Trust Financial. All rights reserved. &middot;{" "}
+            <Link href="/privacy-policy">Privacy Policy</Link>
+          </p>
         </div>
       </div>
     </footer>
