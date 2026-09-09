@@ -17,6 +17,7 @@ export type EventItem = {
   summary: string;
   image?: string;
   imageAlt?: string;
+  imagePosition?: string;
   registerHref?: string;
   details?: EventDetails;
 };
@@ -28,7 +29,12 @@ export default function EventCard({ event }: { event: EventItem }) {
   return (
     <div className="post event-card">
       {event.image ? (
-        <img className="event-card-photo" src={event.image} alt={event.imageAlt || event.title} />
+        <img
+          className="event-card-photo"
+          src={event.image}
+          alt={event.imageAlt || event.title}
+          style={event.imagePosition ? { objectPosition: event.imagePosition } : undefined}
+        />
       ) : (
         <div className="post-band" />
       )}

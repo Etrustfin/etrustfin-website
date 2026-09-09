@@ -78,6 +78,7 @@ const EVENTS: EventItem[] = [
     summary: trumpAccountSummary,
     image: "/assets/family-newborn.jpg",
     imageAlt: "A couple looking down at their newborn baby by a window",
+    imagePosition: "50% 45%",
     details: trumpAccountDetails,
   },
   {
@@ -96,8 +97,8 @@ const EVENTS: EventItem[] = [
     time: "10:00 AM PT",
     location: "Virtual, link sent after registration",
     summary: trumpAccountSummary,
-    image: "/assets/savings-coins-jar.jpg",
-    imageAlt: "A can overflowing with coins",
+    image: "/assets/family-portrait.jpg",
+    imageAlt: "A smiling family of three with their baby",
     details: trumpAccountDetails,
   },
 ];
