@@ -76,8 +76,8 @@ const EVENTS: EventItem[] = [
     time: "12:00 PM PT",
     location: "Virtual, link sent after registration",
     summary: trumpAccountSummary,
-    image: "/assets/child-savings-jar.jpg",
-    imageAlt: "Two children saving coins together in a jar",
+    image: "/assets/family-newborn.jpg",
+    imageAlt: "A couple looking down at their newborn baby by a window",
     details: trumpAccountDetails,
   },
   {
