@@ -78,7 +78,7 @@ const EVENTS: EventItem[] = [
     summary: trumpAccountSummary,
     image: "/assets/family-newborn.jpg",
     imageAlt: "A couple looking down at their newborn baby by a window",
-    imagePosition: "50% 45%",
+    imagePosition: "50% 58%",
     details: trumpAccountDetails,
   },
   {

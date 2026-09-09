@@ -213,6 +213,23 @@ nav{position:sticky;top:0;z-index:100;background:rgba(250,250,248,.94);backdrop-
 .quiz-result .btn{margin-top:22px}
 .quiz-restart{background:none;border:none;font-size:13px;color:var(--stone);text-decoration:underline;cursor:pointer;margin-top:18px;font-family:var(--body)}
 
+/* CASE STUDIES */
+.case-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-bottom:20px}
+.case-card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:40px 36px;display:flex;flex-direction:column}
+.case-card .cat{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--stone);margin-bottom:10px}
+.case-card h3{font-size:22px;margin-bottom:6px}
+.case-card .subtitle{font-size:14px;color:var(--stone);margin-bottom:24px}
+.case-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:24px}
+.case-stat .label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);margin-bottom:4px}
+.case-stat .value{font-size:15px;font-weight:700;color:var(--ink);font-family:var(--display)}
+.case-card h4{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--stone);margin-bottom:8px;margin-top:20px}
+.case-card h4:first-of-type{margin-top:0}
+.case-card p{font-size:14.5px;color:var(--graphite);margin-bottom:0}
+.case-card ul{list-style:none;margin:0}
+.case-card li{font-size:14.5px;color:var(--graphite);padding:5px 0 5px 20px;position:relative}
+.case-card li::before{content:'';position:absolute;left:2px;top:13px;width:10px;height:1px;background:var(--ink)}
+.case-disclaimer{font-size:11.5px;color:var(--stone);line-height:1.6;max-width:900px}
+
 /* REVIEWS */
 .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-bottom:48px}
 .review{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:36px}
@@ -345,7 +362,8 @@ footer{background:#0e0e0e;color:#9a9a94;padding:70px 0 40px;font-size:14px}
   .hero-grid,.story-grid,.contact-grid{grid-template-columns:1fr;gap:52px}
   .story-photo{position:static;max-width:380px}
   .trust-grid{grid-template-columns:1fr 1fr}
-  .pillars-grid,.tiers,.reviews-grid,.blog-grid,.steps,.serve-grid,.con-grid,.teaser-grid{grid-template-columns:1fr}
+  .pillars-grid,.tiers,.reviews-grid,.blog-grid,.steps,.serve-grid,.con-grid,.teaser-grid,.case-grid{grid-template-columns:1fr}
+  .case-stats{grid-template-columns:1fr 1fr}
   .svc-inner{grid-template-columns:1fr;gap:24px}
   .foot-grid{grid-template-columns:1fr 1fr}
   .quiz-wrap{padding:36px 24px}
