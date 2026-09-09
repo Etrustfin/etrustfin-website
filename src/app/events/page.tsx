@@ -50,6 +50,27 @@ const trumpAccountSummary =
 // new, unrelated events are added over time.
 const EVENTS: EventItem[] = [
   {
+    title: "The Wealth Table: A Business Owner Conversation",
+    date: "September 16, 2026",
+    time: "3:00 PM PT",
+    location: "Virtual, Google Meet",
+    summary:
+      "A complimentary, informal conversation for business owners and executives who want to think more intentionally about where their personal finances are headed. No sales pitch, no jargon.",
+    image: "/assets/workspace.jpg",
+    imageAlt: "Financial planning documents and laptops during a strategy session",
+    registerHref: "https://luma.com/h388gwni",
+    details: {
+      whatYoullLearn: [
+        "How business owners are structuring retirement plans to maximize tax-advantaged savings in 2026",
+        "What the most common wealth-building gaps look like for owners and executives at your stage",
+        "How to think about personal financial planning when your income is tied to your business",
+        "What questions you should be asking your current advisor, or asking yourself if you do not have one",
+      ],
+      audienceNote:
+        "Hosted by Samantha Dalby of Spearhead Advisors, a registered investment advisory firm based in Newport Beach, California.",
+    },
+  },
+  {
     title: "Trump Accounts Explained: A Parent's Guide to the New $1,000 Child Savings Program",
     date: "September 16, 2026",
     time: "12:00 PM PT",

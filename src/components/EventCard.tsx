@@ -40,7 +40,13 @@ export default function EventCard({ event }: { event: EventItem }) {
         <p>{event.summary}</p>
         <p style={{ fontSize: 13.5, color: "var(--stone)", marginBottom: 14 }}>{event.location}</p>
         <div style={{ display: "flex", gap: 18, flexWrap: "wrap", alignItems: "center" }}>
-          <a href={event.registerHref || "#register"}>Register</a>
+          {event.registerHref ? (
+            <a href={event.registerHref} target="_blank" rel="noopener">
+              Register
+            </a>
+          ) : (
+            <a href="#register">Register</a>
+          )}
           {hasDetails && (
             <button
               type="button"
