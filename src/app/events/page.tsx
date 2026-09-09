@@ -86,8 +86,8 @@ const EVENTS: EventItem[] = [
     time: "6:00 PM PT",
     location: "Virtual, link sent after registration",
     summary: trumpAccountSummary,
-    image: "/assets/child-savings-jar.jpg",
-    imageAlt: "Two children saving coins together in a jar",
+    image: "/assets/savings-jar-growth.jpg",
+    imageAlt: "A jar of coins with a small plant sprouting from the top",
     details: trumpAccountDetails,
   },
   {
@@ -96,8 +96,8 @@ const EVENTS: EventItem[] = [
     time: "10:00 AM PT",
     location: "Virtual, link sent after registration",
     summary: trumpAccountSummary,
-    image: "/assets/child-savings-jar.jpg",
-    imageAlt: "Two children saving coins together in a jar",
+    image: "/assets/savings-coins-jar.jpg",
+    imageAlt: "A can overflowing with coins",
     details: trumpAccountDetails,
   },
 ];
