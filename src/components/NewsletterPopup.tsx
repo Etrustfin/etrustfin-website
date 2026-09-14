@@ -3,7 +3,7 @@
 import { useEffect, useState, type FormEvent } from "react";
 
 const STORAGE_KEY = "etf-newsletter-interacted";
-const SHOW_DELAY_MS = 8000;
+const SHOW_DELAY_MS = 60000;
 
 export default function NewsletterPopup() {
   const [visible, setVisible] = useState(false);
