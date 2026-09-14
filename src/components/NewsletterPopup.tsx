@@ -7,6 +7,8 @@ const SHOW_DELAY_MS = 8000;
 
 export default function NewsletterPopup() {
   const [visible, setVisible] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [error, setError] = useState("");
@@ -45,7 +47,7 @@ export default function NewsletterPopup() {
       const res = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ firstName, lastName, email }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data?.error || "Something went wrong.");
@@ -81,6 +83,26 @@ export default function NewsletterPopup() {
               No spam, unsubscribe anytime.
             </p>
             <form className="newsletter-form" onSubmit={handleSubmit}>
+              <div className="newsletter-name-row">
+                <input
+                  type="text"
+                  required
+                  placeholder="First name"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  disabled={status === "loading"}
+                  autoComplete="given-name"
+                />
+                <input
+                  type="text"
+                  required
+                  placeholder="Last name"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  disabled={status === "loading"}
+                  autoComplete="family-name"
+                />
+              </div>
               <input
                 type="email"
                 required
@@ -88,6 +110,7 @@ export default function NewsletterPopup() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={status === "loading"}
+                autoComplete="email"
               />
               <button className="btn btn-dark" type="submit" disabled={status === "loading"}>
                 {status === "loading" ? "Joining…" : "Subscribe"}

@@ -404,8 +404,11 @@ footer{background:#0e0e0e;color:#9a9a94;padding:70px 0 40px;font-size:14px}
 .newsletter-form .btn{width:100%;text-align:center;border:none}
 .newsletter-error{color:#b3261e;font-size:13px;margin-top:12px}
 .newsletter-success p{color:var(--graphite);font-size:15px}
+.newsletter-name-row{display:flex;gap:12px}
+.newsletter-name-row input{width:auto;flex:1;min-width:0}
 @media (max-width:560px){
   .newsletter-modal{padding:36px 26px}
+  .newsletter-name-row{flex-direction:column}
 }
 
 /* BLOG POST CONTENT (rendered HubSpot HTML) */

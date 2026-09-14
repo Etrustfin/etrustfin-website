@@ -89,7 +89,7 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPostDetail | 
  * Creates or updates a HubSpot contact by email (upsert). Used by the
  * newsletter popup so new signups appear in the CRM immediately.
  */
-export async function upsertNewsletterContact(email: string) {
+export async function upsertNewsletterContact(email: string, firstName: string, lastName: string) {
   if (!HUBSPOT_TOKEN) {
     throw new Error("HubSpot is not configured (missing HUBSPOT_PRIVATE_APP_TOKEN).");
   }
@@ -103,6 +103,8 @@ export async function upsertNewsletterContact(email: string) {
           id: email,
           properties: {
             email,
+            firstname: firstName,
+            lastname: lastName,
             lifecyclestage: "subscriber",
           },
         },
