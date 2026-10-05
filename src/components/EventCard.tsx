@@ -23,14 +23,17 @@ export type EventItem = {
   imageFull?: boolean;
   registerHref?: string;
   details?: EventDetails;
+  // ISO date-time with timezone offset (e.g. "2026-10-21T19:30:00-04:00"). Once this
+  // moment passes, the Events page moves the event into "Past Events" on its own.
+  endsAt?: string;
 };
 
-export default function EventCard({ event }: { event: EventItem }) {
+export default function EventCard({ event, past = false }: { event: EventItem; past?: boolean }) {
   const [open, setOpen] = useState(false);
-  const hasDetails = !!event.details;
+  const hasDetails = !!event.details && !past;
 
   return (
-    <div className="post event-card">
+    <div className={`post event-card${past ? " event-card-past" : ""}`}>
       {event.image ? (
         <img
           className="event-card-photo"
@@ -49,11 +52,14 @@ export default function EventCard({ event }: { event: EventItem }) {
       )}
       <div className="post-body">
         <p className="cat">
-          {event.date} · {event.time}
+          {past ? `${event.date} · Past event` : `${event.date} · ${event.time}`}
         </p>
         <h3>{event.title}</h3>
         <p>{event.summary}</p>
-        <p style={{ fontSize: 13.5, color: "var(--stone)", marginBottom: 14 }}>{event.location}</p>
+        <p style={{ fontSize: 13.5, color: "var(--stone)", marginBottom: past ? 0 : 14 }}>
+          {event.location}
+        </p>
+        {!past && (
         <div style={{ display: "flex", gap: 18, flexWrap: "wrap", alignItems: "center" }}>
           {event.registerHref ? (
             <a href={event.registerHref} target="_blank" rel="noopener">
@@ -84,6 +90,7 @@ export default function EventCard({ event }: { event: EventItem }) {
             </button>
           )}
         </div>
+        )}
 
         {hasDetails && open && (
           <div style={{ marginTop: 24, paddingTop: 24, borderTop: "1px solid var(--line)" }}>

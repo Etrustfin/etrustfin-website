@@ -7,8 +7,12 @@ import { SCHEDULE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Events",
-  description: "Upcoming workshops and events from Essential Trust Financial in Newport Beach, CA.",
+  description:
+    "Workshops and events from Essential Trust Financial, in person and online. See what is coming up and where we have been.",
 };
+
+// Re-check hourly so events move from Upcoming to Past on their own.
+export const revalidate = 3600;
 
 const trumpAccountDetails = {
   whatYoullLearn: [
@@ -45,10 +49,55 @@ const trumpAccountDetails = {
 const trumpAccountSummary =
   "A complimentary, easy-to-follow session on how this new child savings account works, explained simply, and how it fits alongside college savings, tax planning, and your family's overall financial plan.";
 
-// TO ADD AN EVENT: add an entry to this array. Each event carries its own
-// content (image, summary, details) so the page stays general-purpose as
-// new, unrelated events are added over time.
+// Shared by the in-person women's money events (Atlanta and Charlotte). Each event adds
+// its own audienceNote with the local schedule.
+const womensMoneyEventDetails = {
+  whatYoullLearn: [
+    "How to make the most of company stock and equity compensation",
+    "How to turn a strong income into lasting wealth",
+    "How to protect what you have built",
+    "An open Q&A where no question is too basic",
+  ],
+  faqs: [
+    {
+      q: "Is there a cost to attend?",
+      a: "Tickets are sold through Eventbrite, and your first drink is included. Select Register to see current ticket details.",
+    },
+    {
+      q: "Is this a sales pitch?",
+      a: "No. This is an educational and social event. No pressure, no pitch, just good conversation with great women.",
+    },
+  ],
+  disclaimer:
+    "This event is for informational and educational purposes only and does not constitute tax, legal, or investment advice. Essential Trust Financial does not provide tax or legal advice. Please consult your own tax advisor or attorney. Information is subject to change.",
+};
+
+// TO ADD AN EVENT: add an entry to this array. Each event carries its own content
+// (image, summary, details) so the page stays general-purpose as new, unrelated events
+// are added over time. Give every event an `endsAt` (ISO date-time with timezone offset).
+// Upcoming events are listed soonest first. Once `endsAt` passes, the event moves to
+// "Past Events" automatically, without a Register button.
 const EVENTS: EventItem[] = [
+  {
+    title: "Money & Matcha: A Morning for Women Who Mean Business",
+    date: "October 20, 2026",
+    time: "7:30 AM to 9:30 AM ET",
+    location: "In person, Coco and the Director, 100 West Trade Street, Charlotte, NC 28202",
+    summary:
+      "A morning in Charlotte for driven women to connect over matcha or coffee and get smarter about their money, and still make it to work on time. Your first drink is included. Educational and social, with no pressure and no pitch.",
+    image: "/assets/money-and-matcha.webp",
+    imageAlt:
+      "Money & Matcha: A Morning for Women Who Mean Business. A matcha latte in a ceramic cup on a marble table beside a notebook and fresh flowers.",
+    imageFull: true,
+    registerHref:
+      "https://www.eventbrite.com/e/money-matcha-a-morning-for-women-who-mean-business-tickets-2002969992165",
+    endsAt: "2026-10-20T09:30:00-04:00",
+    details: {
+      ...womensMoneyEventDetails,
+      audienceNote:
+        "For women professionals, executives, and business owners who are doing well and want to know they are doing it right. The morning starts at 7:30 AM with a drink and time to meet the room, followed by a 15-minute conversation at 7:50 AM on the money moves high-earning women often miss, open Q&A at 8:05 AM, and a wrap-up by 8:30 AM so you can head into your day. Hosted by Samantha Dalby of Essential Trust Financial.",
+    },
+  },
   {
     title: "Wealth & Wine: A Money Happy Hour for Women in Buckhead",
     date: "October 21, 2026",
@@ -62,27 +111,11 @@ const EVENTS: EventItem[] = [
     imageFull: true,
     registerHref:
       "https://www.eventbrite.com/e/wealth-wine-a-money-happy-hour-for-women-in-buckhead-tickets-2002968109534",
+    endsAt: "2026-10-21T19:30:00-04:00",
     details: {
-      whatYoullLearn: [
-        "How to make the most of company stock and equity compensation",
-        "How to turn a strong income into lasting wealth",
-        "How to protect what you have built",
-        "An open Q&A where no question is too basic",
-      ],
+      ...womensMoneyEventDetails,
       audienceNote:
         "For women professionals, executives, and business owners who are doing well and want to know they are doing it right. The evening starts at 5:30 PM with a drink and time to meet the room, followed by a 20-minute conversation at 6:00 PM on the money moves high-earning women often miss, open Q&A at 6:20 PM, and time to mingle afterward. Hosted by Samantha Dalby of Essential Trust Financial.",
-      faqs: [
-        {
-          q: "Is there a cost to attend?",
-          a: "Tickets are sold through Eventbrite, and your first drink is included. Select Register to see current ticket details.",
-        },
-        {
-          q: "Is this a sales pitch?",
-          a: "No. This is an educational and social evening. No pressure, no pitch, just good conversation with great women.",
-        },
-      ],
-      disclaimer:
-        "This event is for informational and educational purposes only and does not constitute tax, legal, or investment advice. Essential Trust Financial does not provide tax or legal advice. Please consult your own tax advisor or attorney. Information is subject to change.",
     },
   },
   {
@@ -95,6 +128,7 @@ const EVENTS: EventItem[] = [
     image: "/assets/workspace.jpg",
     imageAlt: "Financial planning documents and laptops during a strategy session",
     registerHref: "https://luma.com/h388gwni",
+    endsAt: "2026-09-16T23:59:00-07:00",
     details: {
       whatYoullLearn: [
         "How business owners are structuring retirement plans to maximize tax-advantaged savings in 2026",
@@ -115,6 +149,7 @@ const EVENTS: EventItem[] = [
     image: "/assets/family-newborn.jpg",
     imageAlt: "A couple looking down at their newborn baby by a window",
     imagePosition: "50% 58%",
+    endsAt: "2026-09-16T23:59:00-07:00",
     details: trumpAccountDetails,
   },
   {
@@ -125,6 +160,7 @@ const EVENTS: EventItem[] = [
     summary: trumpAccountSummary,
     image: "/assets/savings-jar-growth.jpg",
     imageAlt: "A jar of coins with a small plant sprouting from the top",
+    endsAt: "2026-09-22T23:59:00-07:00",
     details: trumpAccountDetails,
   },
   {
@@ -135,11 +171,23 @@ const EVENTS: EventItem[] = [
     summary: trumpAccountSummary,
     image: "/assets/family-portrait.jpg",
     imageAlt: "A smiling family of three with their baby",
+    endsAt: "2026-09-24T23:59:00-07:00",
     details: trumpAccountDetails,
   },
 ];
 
+const endMs = (event: EventItem) => (event.endsAt ? Date.parse(event.endsAt) : Infinity);
+const compareByEnd = (a: EventItem, b: EventItem) =>
+  endMs(a) < endMs(b) ? -1 : endMs(a) > endMs(b) ? 1 : 0;
+
 export default function EventsPage() {
+  const now = Date.now();
+  const isPast = (event: EventItem) => endMs(event) < now;
+  const upcoming = EVENTS.filter((event) => !isPast(event)).sort(compareByEnd);
+  const past = EVENTS.filter(isPast).sort((a, b) => compareByEnd(b, a));
+  // The shared sign-up form is only for sessions without their own registration link.
+  const showRegistrationForm = upcoming.some((event) => !event.registerHref);
+
   return (
     <>
       <PageHero
@@ -150,7 +198,7 @@ export default function EventsPage() {
       />
       <section className="section">
         <div className="wrap">
-          {EVENTS.length === 0 ? (
+          {upcoming.length === 0 ? (
             <div className="section-head center">
               <p className="eyebrow">Check Back Soon</p>
               <h2>No upcoming events scheduled right now.</h2>
@@ -166,7 +214,7 @@ export default function EventsPage() {
             </div>
           ) : (
             <div className="blog-grid">
-              {EVENTS.map((event) => (
+              {upcoming.map((event) => (
                 <EventCard key={`${event.title}-${event.date}`} event={event} />
               ))}
             </div>
@@ -174,21 +222,44 @@ export default function EventsPage() {
         </div>
       </section>
 
-      <section className="section" id="register" style={{ background: "var(--mist)" }}>
-        <div className="wrap">
-          <div className="section-head center">
-            <p className="eyebrow">Reserve Your Spot</p>
-            <h2>Register for a session.</h2>
-            <p>
-              Pick your preferred event and time using the dropdown below. We&rsquo;ll send
-              reminders before your session.
-            </p>
+      {showRegistrationForm && (
+        <section className="section" id="register" style={{ background: "var(--mist)" }}>
+          <div className="wrap">
+            <div className="section-head center">
+              <p className="eyebrow">Reserve Your Spot</p>
+              <h2>Register for a session.</h2>
+              <p>
+                Pick your preferred event and time using the dropdown below. We&rsquo;ll send
+                reminders before your session.
+              </p>
+            </div>
+            <div style={{ maxWidth: 640, margin: "0 auto" }}>
+              <HubSpotForm formId="668288fc-3730-4409-bf67-543d75545ca5" />
+            </div>
           </div>
-          <div style={{ maxWidth: 640, margin: "0 auto" }}>
-            <HubSpotForm formId="668288fc-3730-4409-bf67-543d75545ca5" />
+        </section>
+      )}
+
+      {past.length > 0 && (
+        <section
+          className="section"
+          id="past-events"
+          style={showRegistrationForm ? undefined : { background: "var(--mist)" }}
+        >
+          <div className="wrap">
+            <div className="section-head center">
+              <p className="eyebrow">Past Events</p>
+              <h2>Where we have been.</h2>
+              <p>A look back at recent sessions. Watch this page for what is next.</p>
+            </div>
+            <div className="blog-grid">
+              {past.map((event) => (
+                <EventCard key={`${event.title}-${event.date}`} event={event} past />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <FinalCta />
     </>
