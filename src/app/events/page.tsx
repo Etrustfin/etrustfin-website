@@ -50,6 +50,42 @@ const trumpAccountSummary =
 // new, unrelated events are added over time.
 const EVENTS: EventItem[] = [
   {
+    title: "Wealth & Wine: A Money Happy Hour for Women in Buckhead",
+    date: "October 21, 2026",
+    time: "5:30 PM to 7:30 PM ET",
+    location: "In person, Amalfi Cucina + Mercato, 3242 Peachtree Road NE, Suite A, Atlanta, GA 30305",
+    summary:
+      "An evening in Buckhead for driven women to connect, sip, and get smarter about growing and protecting their wealth. Your first drink is included. Educational and social, with no pressure and no pitch.",
+    image: "/assets/wealth-and-wine.webp",
+    imageAlt:
+      "Wealth & Wine: A Money Happy Hour for Women, Buckhead, Atlanta. A glass of red wine on a marble table with the Atlanta skyline at night.",
+    imagePosition: "50% 66%",
+    registerHref:
+      "https://www.eventbrite.com/e/wealth-wine-a-money-happy-hour-for-women-in-buckhead-tickets-2002968109534",
+    details: {
+      whatYoullLearn: [
+        "How to make the most of company stock and equity compensation",
+        "How to turn a strong income into lasting wealth",
+        "How to protect what you have built",
+        "An open Q&A where no question is too basic",
+      ],
+      audienceNote:
+        "For women professionals, executives, and business owners who are doing well and want to know they are doing it right. The evening starts at 5:30 PM with a drink and time to meet the room, followed by a 20-minute conversation at 6:00 PM on the money moves high-earning women often miss, open Q&A at 6:20 PM, and time to mingle afterward. Hosted by Samantha Dalby of Essential Trust Financial.",
+      faqs: [
+        {
+          q: "Is there a cost to attend?",
+          a: "Tickets are sold through Eventbrite, and your first drink is included. Select Register to see current ticket details.",
+        },
+        {
+          q: "Is this a sales pitch?",
+          a: "No. This is an educational and social evening. No pressure, no pitch, just good conversation with great women.",
+        },
+      ],
+      disclaimer:
+        "This event is for informational and educational purposes only and does not constitute tax, legal, or investment advice. Essential Trust Financial does not provide tax or legal advice. Please consult your own tax advisor or attorney. Information is subject to change.",
+    },
+  },
+  {
     title: "The Wealth Table: A Business Owner Conversation",
     date: "September 16, 2026",
     time: "3:00 PM PT",
