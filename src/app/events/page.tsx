@@ -79,6 +79,39 @@ const womensMoneyEventDetails = {
 // "Past Events" automatically, without a Register button.
 const EVENTS: EventItem[] = [
   {
+    title: "Wealth & Wine: A Money Happy Hour for Women in Newport Beach",
+    date: "October 14, 2026",
+    time: "5:30 PM to 7:30 PM PT",
+    location: "In person, CUCINA enoteca Newport Beach, 951 Newport Center Drive, Newport Beach, CA 92660",
+    summary:
+      "An evening for women who want to feel confident with their money. Real conversation, great women, and no jargon, no judgment. Your first glass of wine is included. Educational and social, with no pressure and no pitch.",
+    image: "/assets/wealth-and-wine-newport-beach.webp",
+    imageAlt:
+      "Wealth & Wine: A Money Happy Hour for Women, Newport Beach, California. A glass of red wine on a marble table overlooking the harbor at sunset.",
+    imageFull: true,
+    registerHref:
+      "https://www.eventbrite.com/e/wealth-wine-a-money-happy-hour-for-women-in-newport-beach-tickets-2002970821646",
+    endsAt: "2026-10-14T19:30:00-07:00",
+    details: {
+      ...womensMoneyEventDetails,
+      whatYoullLearn: [
+        "How to get a clear picture of where you stand with your money",
+        "How to build a plan that fits your life and goals",
+        "How to protect your income, your family, and your future",
+        "An open Q&A where no question is too basic",
+      ],
+      audienceNote:
+        "For any woman who wants to manage her money with more confidence, whether you are just getting started or ready to level up. The evening starts at 5:30 PM with a glass of wine and time to meet the room, followed by a 20-minute conversation at 6:00 PM on taking control of your money, open Q&A at 6:20 PM, and time to mingle afterward. Hosted by Samantha Dalby of Essential Trust Financial.",
+      faqs: [
+        {
+          q: "Is there a cost to attend?",
+          a: "Yes, tickets are $30 and are sold through Eventbrite. Your first glass of wine is included, and Eventbrite shows your final total at checkout.",
+        },
+        womensMoneyEventDetails.faqs[1],
+      ],
+    },
+  },
+  {
     title: "Money & Matcha: A Morning for Women Who Mean Business",
     date: "October 20, 2026",
     time: "7:30 AM to 9:30 AM ET",
