@@ -171,6 +171,7 @@ const EVENTS: EventItem[] = [
     summary: trumpAccountSummary,
     image: "/assets/family-portrait.jpg",
     imageAlt: "A smiling family of three with their baby",
+    imagePosition: "50% 28%",
     endsAt: "2026-09-24T23:59:00-07:00",
     details: trumpAccountDetails,
   },
