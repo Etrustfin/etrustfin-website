@@ -59,7 +59,7 @@ const EVENTS: EventItem[] = [
     image: "/assets/wealth-and-wine.webp",
     imageAlt:
       "Wealth & Wine: A Money Happy Hour for Women, Buckhead, Atlanta. A glass of red wine on a marble table with the Atlanta skyline at night.",
-    imagePosition: "50% 66%",
+    imageFull: true,
     registerHref:
       "https://www.eventbrite.com/e/wealth-wine-a-money-happy-hour-for-women-in-buckhead-tickets-2002968109534",
     details: {

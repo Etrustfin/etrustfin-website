@@ -18,6 +18,9 @@ export type EventItem = {
   image?: string;
   imageAlt?: string;
   imagePosition?: string;
+  // Show the whole image instead of cropping it to the card's fixed photo height.
+  // Use for banners with text baked into the artwork.
+  imageFull?: boolean;
   registerHref?: string;
   details?: EventDetails;
 };
@@ -33,7 +36,13 @@ export default function EventCard({ event }: { event: EventItem }) {
           className="event-card-photo"
           src={event.image}
           alt={event.imageAlt || event.title}
-          style={event.imagePosition ? { objectPosition: event.imagePosition } : undefined}
+          style={
+            event.imageFull
+              ? { height: "auto" }
+              : event.imagePosition
+                ? { objectPosition: event.imagePosition }
+                : undefined
+          }
         />
       ) : (
         <div className="post-band" />
