@@ -65,7 +65,15 @@ export default function PlanFunnel() {
     setBusy(true);
     setError("");
     try {
-      await post({ step: "survey", email: form.email, answers: next });
+      await post({
+        step: "survey",
+        email: form.email,
+        firstName: form.firstName,
+        lastName: form.lastName,
+        phone: form.phone,
+        source,
+        answers: next,
+      });
     } catch {
       // The contact is already saved. Do not block the booking if the answers could not be.
     } finally {
