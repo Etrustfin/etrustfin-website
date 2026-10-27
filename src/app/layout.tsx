@@ -3,6 +3,7 @@ import { Marcellus, Mulish } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import NewsletterPopup from "@/components/NewsletterPopup";
+import SiteChrome from "@/components/SiteChrome";
 import { SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
@@ -35,10 +36,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${marcellus.variable} ${mulish.variable}`}>
       <body>
-        <Nav />
+        <SiteChrome>
+          <Nav />
+        </SiteChrome>
         {children}
-        <Footer />
-        <NewsletterPopup />
+        <SiteChrome>
+          <Footer />
+          <NewsletterPopup />
+        </SiteChrome>
       </body>
     </html>
   );

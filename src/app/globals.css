@@ -413,6 +413,41 @@ footer{background:#0e0e0e;color:#9a9a94;padding:70px 0 40px;font-size:14px}
   .newsletter-name-row{flex-direction:column}
 }
 
+/* FUNNEL (Build Your Financial Plan landing page) */
+/* Blue palette for this page only. Delete the next line to return to the site's black and cream. */
+.funnel{--ink:#12294a;--graphite:#2c4468;--stone:#66778f;--line:#d3dcea;--mist:#e6edf7;--paper:#f3f6fb;min-height:100vh;display:flex;flex-direction:column;background:var(--paper);color:var(--ink)}
+.funnel-top{display:flex;align-items:center;justify-content:center;gap:12px;padding:20px 24px;border-bottom:1px solid var(--line);background:var(--white)}
+.funnel-top img{width:38px;height:38px}
+.funnel-top span{font-family:var(--display);font-size:18px}
+.funnel-main{flex:1;width:100%;max-width:640px;margin:0 auto;padding:48px 24px 40px}
+.funnel-hero{text-align:center;margin-bottom:34px}
+.funnel-hero h1{font-size:clamp(34px,6vw,52px);margin-bottom:18px}
+.funnel-sub{font-size:18px;color:var(--graphite);margin-bottom:14px}
+.funnel-for{font-size:14px;color:var(--stone);letter-spacing:.02em}
+.funnel-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:38px 34px;display:flex;flex-direction:column;gap:16px}
+.funnel-card h2{font-size:26px;text-align:center;margin-bottom:4px}
+.funnel-card label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--graphite)}
+.funnel-card input[type=text],.funnel-card input[type=tel],.funnel-card input[type=email]{font-family:var(--body);font-size:16px;font-weight:400;padding:14px 16px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink);width:100%}
+.funnel-card input:focus{outline:none;border-color:var(--ink);background:var(--white)}
+.funnel-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.funnel-card .btn{width:100%;text-align:center;margin-top:6px}
+.funnel-card .btn:disabled{opacity:.6;cursor:default}
+.funnel-fine{font-size:12px;line-height:1.6;color:var(--stone);text-align:center}
+.funnel-fine a{color:var(--graphite);text-decoration:underline}
+.funnel-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.funnel-quiz{padding:44px 38px}
+.funnel-done{text-align:center}
+.funnel-done h2{font-size:28px;margin-bottom:16px}
+.funnel-done p{color:var(--graphite);margin-bottom:26px}
+.funnel-disclosure{max-width:760px;margin:0 auto;padding:8px 24px 36px;text-align:center}
+.funnel-disclosure p{font-size:11.5px;line-height:1.6;color:var(--stone);margin-bottom:8px}
+@media (max-width:560px){
+  .funnel-main{padding:32px 18px 28px}
+  .funnel-card{padding:28px 22px}
+  .funnel-row{grid-template-columns:1fr}
+  .funnel-quiz{padding:30px 22px}
+}
+
 /* BLOG POST CONTENT (rendered HubSpot HTML) */
 .post-content{font-size:16.5px;color:var(--graphite);line-height:1.8}
 .post-content h2{font-family:var(--display);font-size:28px;color:var(--ink);margin:40px 0 18px;font-weight:400}

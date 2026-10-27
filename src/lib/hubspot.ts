@@ -117,3 +117,28 @@ export async function upsertNewsletterContact(email: string, firstName: string, 
   }
   return res.json();
 }
+
+/**
+ * Creates or updates a HubSpot contact by email (upsert) with the given properties.
+ * Used by the "Build Your Financial Plan" funnel: once after the contact step, and again
+ * after the survey, so a visitor who stops partway is still saved as a lead.
+ * Lifecycle stage is deliberately not set, because HubSpot rejects moving an existing
+ * contact (for example a client) backward to an earlier stage.
+ */
+export async function upsertFunnelContact(email: string, properties: Record<string, string>) {
+  if (!HUBSPOT_TOKEN) {
+    throw new Error("HubSpot is not configured (missing HUBSPOT_PRIVATE_APP_TOKEN).");
+  }
+  const res = await fetch(`${HUBSPOT_API}/crm/v3/objects/contacts/batch/upsert`, {
+    method: "POST",
+    headers: hubspotHeaders(),
+    body: JSON.stringify({
+      inputs: [{ idProperty: "email", id: email, properties: { email, ...properties } }],
+    }),
+  });
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`HubSpot error ${res.status}: ${text}`);
+  }
+  return res.json();
+}
