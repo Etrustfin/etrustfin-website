@@ -4,6 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import NewsletterPopup from "@/components/NewsletterPopup";
 import SiteChrome from "@/components/SiteChrome";
+import MetaPixel from "@/components/MetaPixel";
 import { SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
@@ -44,6 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
           <NewsletterPopup />
         </SiteChrome>
+        <MetaPixel />
       </body>
     </html>
   );

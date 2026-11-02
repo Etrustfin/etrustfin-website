@@ -424,6 +424,13 @@ footer{background:#0e0e0e;color:#9a9a94;padding:70px 0 40px;font-size:14px}
 .funnel-hero h1{font-size:clamp(34px,6vw,52px);margin-bottom:18px}
 .funnel-sub{font-size:18px;color:var(--graphite);margin-bottom:14px}
 .funnel-for{font-size:14px;color:var(--stone);letter-spacing:.02em}
+.funnel-advisor{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:22px;text-align:left}
+.funnel-advisor img{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid var(--white);box-shadow:0 2px 8px rgba(18,41,74,.15);flex-shrink:0}
+.funnel-advisor p{font-size:13.5px;line-height:1.5;color:var(--graphite);max-width:300px}
+.funnel-advisor strong{display:block;font-size:15px;color:var(--ink)}
+.funnel-card .quiz-progress{margin-bottom:10px}
+.funnel-card-sub{font-size:15px;color:var(--graphite);text-align:center;margin-top:-6px}
+.funnel-optional{font-weight:400;color:var(--stone);letter-spacing:0}
 .funnel-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:38px 34px;display:flex;flex-direction:column;gap:16px}
 .funnel-card h2{font-size:26px;text-align:center;margin-bottom:4px}
 .funnel-card label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--graphite)}

@@ -51,13 +51,15 @@ export async function POST(request: Request) {
       if (!firstName || !lastName) {
         return NextResponse.json({ error: "Please enter your first and last name." }, { status: 400 });
       }
-      if (phone.replace(/\D/g, "").length < 10) {
-        return NextResponse.json({ error: "Please enter a valid phone number." }, { status: 400 });
+      // Phone is optional. Check it only when one was entered.
+      if (phone && phone.replace(/\D/g, "").length < 10) {
+        return NextResponse.json({ error: "Please enter a valid phone number, or leave it blank." }, { status: 400 });
       }
       await upsertFunnelContact(email, {
         firstname: firstName,
         lastname: lastName,
-        phone,
+        // Leave out a blank phone so it does not erase one HubSpot already has.
+        ...(phone && { phone }),
         plan_funnel_source: clean(body.source, 200) || "direct",
         plan_funnel_stage: "Contact info only",
       });
@@ -81,7 +83,7 @@ export async function POST(request: Request) {
           email,
           firstname: clean(body.firstName, 80),
           lastname: clean(body.lastName, 80),
-          phone: clean(body.phone, 40),
+          ...(clean(body.phone, 40) && { phone: clean(body.phone, 40) }),
           plan_funnel_source: clean(body.source, 200) || "direct",
           ...properties,
         });
