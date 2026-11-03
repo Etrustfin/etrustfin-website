@@ -5,9 +5,9 @@ import { usePathname } from "next/navigation";
 import Script from "next/script";
 
 // Meta (Facebook) Pixel. Tells Meta when someone views a page or finishes the Build Your Plan
-// application, so ads can be measured by real leads. Set NEXT_PUBLIC_META_PIXEL_ID in Vercel;
-// without it, nothing loads.
-const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
+// application, so ads can be measured by real leads. The ID is public (it appears in every page)
+// and is the "Conversion Pixel" in Meta Events Manager. NEXT_PUBLIC_META_PIXEL_ID overrides it.
+const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || "1170254954248354";
 
 type Fbq = (command: string, event: string, params?: Record<string, unknown>) => void;
 
