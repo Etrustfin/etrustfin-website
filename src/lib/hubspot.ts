@@ -7,7 +7,10 @@ export type BlogPostSummary = {
   slug: string;
   summary: string;
   featuredImage: string | null;
+  featuredImageAlt: string;
+  metaDescription: string;
   publishDate: string | null;
+  updated: string | null;
 };
 
 export type BlogPostDetail = BlogPostSummary & {
@@ -33,7 +36,10 @@ type RawHubspotPost = {
   postSummary?: string;
   postBody?: string;
   featuredImage?: string;
+  featuredImageAltText?: string;
+  metaDescription?: string;
   publishDate?: string;
+  updated?: string;
 };
 
 function mapSummary(post: RawHubspotPost): BlogPostSummary {
@@ -43,7 +49,10 @@ function mapSummary(post: RawHubspotPost): BlogPostSummary {
     slug: post.slug,
     summary: stripHtml(post.postSummary || "").slice(0, 220),
     featuredImage: post.featuredImage || null,
+    featuredImageAlt: post.featuredImageAltText || "",
+    metaDescription: (post.metaDescription || "").trim(),
     publishDate: post.publishDate || null,
+    updated: post.updated || null,
   };
 }
 
